@@ -5,20 +5,13 @@
   "authors": [
     "Bukarinov <bukarinov@gmail.com>"
   ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
   "dependencies": {
-    "jQuery": "2.0.3",
+    "requirejs": "2.1.8",
+    "jquery": "2.0.3",
+    "underscore": "1.5.2",
     "backbone": "1.0.0",
     "backbone.localStorage": "1.1.6",
-    "requirejs": "2.1.8",
     "handlebars.js": "1.0.0",
-    "require-handlebars-plugin": "0.4.0"
+    "hbs": "0.4.0"
   }
 }
