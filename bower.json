@@ -1,0 +1,24 @@
+{
+  "name": "newblog.bukarinov.ru",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Bukarinov/blog",
+  "authors": [
+    "Bukarinov <bukarinov@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "2.0.3",
+    "backbone": "1.0.0",
+    "backbone.localStorage": "1.1.6",
+    "requirejs": "2.1.8",
+    "handlebars.js": "1.0.0",
+    "require-handlebars-plugin": "0.4.1"
+  }
+}
