@@ -2,7 +2,7 @@ requirejs.config({
     baseUrl: '/js',
     paths: {
         'jquery': 'bower_components/jquery/jquery',
-        'underscore': 'bower_components/underscore/underscore',
+        'underscore': 'bower_components/lodash/dist/lodash.underscore',
         'backbone': 'bower_components/backbone/backbone',
         'localstorage': 'bower_components/backbone.localStorage/backbone.localStorage',
         'handlebars': 'bower_components/handlebars.js/dist/handlebars',
