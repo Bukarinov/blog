@@ -1,31 +1,33 @@
-define(['backbone', 'modules/posts/models/posts', 'modules/posts/views/posts', 'modules/posts/models/post', 'modules/posts/views/post'],
-function(Backbone, Posts, PostsView, Post, PostView) {
+define(['backbone', 'underscore', 'modules/posts/models/posts', 'modules/posts/views/posts', 'modules/posts/models/post', 'modules/posts/views/post'],
+function(Backbone, _, Posts, PostsView, Post, PostView) {
     return new (Backbone.Router.extend({
         routes: {
             "": "postsAction",
             "post/:id": "postAction"
         },
         initialize: function() {
-            this.posts = new Posts();
-            this.postsView = new PostsView({collection: this.posts, el: document.body});
 
-            this.post = new Post();
-            this.postView = new PostView({model: this.post, el: document.body});
-
-            //$('body').append(this.postsView.el);
         },
 
         postsAction: function() {
-            this.posts.fetch();
-            this.postsView.render();
+            this.posts = new Posts();
+            this.postsView = new PostsView({collection: this.posts});
+
+            var posts = this.posts;
+
+            this.posts.fetch().done(function() {
+                posts.trigger('fetched');
+            });
         },
         postAction: function(id) {
-            var post = this.posts.localStorage.find({id: id});
+            this.post = new Post({id: id});
+            this.postView = new PostView({model: this.post});
 
-            this.post.set('title', post.title);
-            this.post.set('description', post.description);
+            var post = this.post;
 
-            this.postView.render();
+            this.post.fetch().done(function() {
+                post.trigger('fetched');
+            });
         }
     }));
 });
