@@ -3,7 +3,8 @@ function(Backbone, _, Posts, PostsView, Post, PostView) {
     return new (Backbone.Router.extend({
         routes: {
             "": "postsAction",
-            "post/:id": "postAction"
+            ":id": "postAction",
+            ":id/delete": "deleteAction"
         },
         initialize: function() {
 
@@ -15,7 +16,10 @@ function(Backbone, _, Posts, PostsView, Post, PostView) {
 
             var posts = this.posts;
 
+            console.log('posts');
+
             this.posts.fetch().done(function() {
+                console.log('posts fetched');
                 posts.trigger('fetched');
             });
         },
@@ -27,6 +31,19 @@ function(Backbone, _, Posts, PostsView, Post, PostView) {
 
             this.post.fetch().done(function() {
                 post.trigger('fetched');
+            });
+
+        },
+        deleteAction: function(id) {
+            this.post = new Post({id: id});
+
+            var router = this;
+
+            this.post.destroy({
+                wait: true,
+                success: function() {
+                    router.navigate('/', {trigger: true});
+                }
             });
         }
     }));

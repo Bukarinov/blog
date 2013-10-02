@@ -1,7 +1,9 @@
 define(['backbone', 'hbs!modules/posts/templates/post'], function(Backbone, postTpl) {
     return Backbone.View.extend({
         el: document.body,
-
+        events: {
+            //'click .delete': '_toggleMute'
+        },
         initialize: function() {
             this.listenTo(this.model, 'fetched', this.render);
         },
