@@ -16,10 +16,7 @@ function(Backbone, _, Posts, PostsView, Post, PostView) {
 
             var posts = this.posts;
 
-            console.log('posts');
-
             this.posts.fetch().done(function() {
-                console.log('posts fetched');
                 posts.trigger('fetched');
             });
         },
