@@ -1,19 +1,8 @@
 require(['config'], function() {
-    require(['backbone', 'modules/posts/route', 'modules/posts/models/posts', 'modules/posts/models/post'], function(Backbone, postsRoute, Posts, Post) {
-        /*var posts = new Posts();
-
-         posts.create({
-         title: 'test1',
-         description: 'test1 desc'
-         });
-         posts.create({
-         title: 'test2',
-         description: 'test2 desc'
-         });
-         posts.create({
-         title: 'test3',
-         description: 'test3 desc'
-         });*/
+    require(['backbone', 'modules/posts/router', 'modules/common/layouts/main', 'modules/common/views/menu'],
+    function(Backbone, postsRouter, layout, MenuView) {
+        layout.render();
+        layout.headerRegion.show(new MenuView());
 
         Backbone.history.start({pushState: true});
     });

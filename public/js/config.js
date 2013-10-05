@@ -5,6 +5,7 @@ require.config({
         'underscore': 'bower_components/lodash/dist/lodash.underscore',
         'backbone': 'bower_components/backbone/backbone',
         'localstorage': 'bower_components/backbone.localStorage/backbone.localStorage',
+        'marionette': 'bower_components/backbone.marionette/lib/backbone.marionette',
         'handlebars': 'bower_components/handlebars.js/dist/handlebars',
         'hbs': 'bower_components/hbs/hbs',
         'json2': 'bower_components/hbs/hbs/json2',
@@ -17,6 +18,10 @@ require.config({
         },
         'underscore': {
             exports: '_'
+        },
+        marionette : {
+            deps : ['jquery', 'underscore', 'backbone'],
+            exports : 'Marionette'
         },
         'handlebars': {
             exports: 'Handlebars'
