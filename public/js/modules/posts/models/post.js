@@ -1,17 +1,16 @@
 define(['backbone', 'modules/comments/models/comment', 'modules/comments/collections/comments', 'localstorage', 'validation', 'associations'],
 function(Backbone, Comment, Comments) {
-    return Backbone.Model.extend({
+    return Backbone.AssociatedModel.extend({
         localStorage: new Backbone.LocalStorage("posts"),
         defaults: {
             title: '',
             description: '',
-            comments: new Comments()
+            comments: []
         },
         relations: [
             {
                 type: Backbone.Many,
                 key: 'comments',
-                relatedModel: Comment,
                 collectionType: Comments
             }
         ],

@@ -16,8 +16,13 @@ function(Backbone, Marionette, Comment, CommentTpl) {
             } else {
                 // @TODO Add model to comments' collection and re-render view with comments
                 // @TODO Check {wait: true}
+                var that = this;
+
                 comment.save(null, {wait: true}).done(function() {
-                    Backbone.history.navigate('/', {trigger: true});
+                    that.parentObj.get('comments').add(comment.get('id'));
+                    that.parentObj.save(null, {wait: true}).done(function() {
+                        Backbone.history.navigate('/', {trigger: true});
+                    });
                 });
             }
         }
