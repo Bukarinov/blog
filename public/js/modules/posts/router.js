@@ -1,9 +1,18 @@
-define(['backbone', 'modules/common/layouts/main', 'modules/posts/models/posts', 'modules/posts/views/list', 'modules/posts/models/post', 'modules/posts/views/show'],
-function(Backbone, layout, Posts, ListView, Post, ShowView) {
+define([
+    'backbone',
+    'modules/common/layouts/main',
+    'modules/posts/models/posts',
+    'modules/posts/models/post',
+    'modules/posts/views/list',
+    'modules/posts/views/show',
+    'modules/posts/views/edit'
+], function(Backbone, layout, Posts, Post, ListView, ShowView, EditView) {
     return new (Backbone.Router.extend({
         routes: {
             "": "listAction",
-            "post/:id": "showAction"
+            "post/new": "newAction",
+            "post/:id": "showAction",
+            "post/:id/edit": "editAction"
         },
 
         listAction: function() {
@@ -19,7 +28,16 @@ function(Backbone, layout, Posts, ListView, Post, ShowView) {
             post.fetch().done(function() {
                 layout.contentRegion.show(new ShowView({model: post}));
             });
+        },
+        newAction: function() {
+            layout.contentRegion.show(new EditView());
+        },
+        editAction: function(id) {
+            var post = new Post({id: id});
 
+            post.fetch().done(function() {
+                layout.contentRegion.show(new EditView({model: post}));
+            });
         }
     }));
 });

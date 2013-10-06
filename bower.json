@@ -8,10 +8,12 @@
   "dependencies": {
     "requirejs": "2.1.8",
     "jquery": "2.0.3",
+    "jquery-serialize-object": "2.0.0",
     "lodash": "2.2.0",
     "backbone": "1.0.0",
     "backbone.localStorage": "1.1.6",
     "backbone.marionette": "1.1.0",
+    "backbone-validation": "0.8.1",
     "handlebars.js": "1.0.0",
     "hbs": "0.4.0"
   }

@@ -4,10 +4,10 @@ function(Backbone, Marionette, Post, PostView) {
         tagName: 'ul',
         itemView: PostView,
         events: {
-            'click .delete': 'deletePost'
+            'click .delete': '_deletePostCallback'
         },
 
-        deletePost: function(e) {
+        _deletePostCallback: function(e) {
             e.preventDefault();
 
             this.collection.get($(e.currentTarget).data('id')).destroy();
