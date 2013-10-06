@@ -14,6 +14,7 @@
     "backbone.localStorage": "1.1.6",
     "backbone.marionette": "1.1.0",
     "backbone-validation": "0.8.1",
+    "backbone-associations": "0.5.3",
     "handlebars.js": "1.0.0",
     "hbs": "0.4.0"
   }

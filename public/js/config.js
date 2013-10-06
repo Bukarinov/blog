@@ -8,6 +8,7 @@ require.config({
         'localstorage': 'bower_components/backbone.localStorage/backbone.localStorage',
         'marionette': 'bower_components/backbone.marionette/lib/backbone.marionette',
         'validation': 'bower_components/backbone-validation/dist/backbone-validation',
+        'associations': 'bower_components/backbone-associations/backbone-associations',
         'handlebars': 'bower_components/handlebars.js/dist/handlebars',
         'hbs': 'bower_components/hbs/hbs',
         'json2': 'bower_components/hbs/hbs/json2',
@@ -30,6 +31,9 @@ require.config({
         },
         validation : {
             deps : ['jquery', 'backbone']
+        },
+        associations: {
+            deps : ['backbone']
         },
         'handlebars': {
             exports: 'Handlebars'

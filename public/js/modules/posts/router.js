@@ -1,12 +1,14 @@
 define([
     'backbone',
-    'modules/common/layouts/main',
-    'modules/posts/models/posts',
+    'modules/posts/collections/posts',
     'modules/posts/models/post',
+    'modules/common/layouts/main',
+    'modules/posts/layouts/show',
     'modules/posts/views/list',
     'modules/posts/views/show',
-    'modules/posts/views/edit'
-], function(Backbone, layout, Posts, Post, ListView, ShowView, EditView) {
+    'modules/posts/views/edit',
+    'modules/comments/views/list'
+], function(Backbone, Posts, Post, layout, showLayout, ListView, ShowView, EditView, CommentsView) {
     return new (Backbone.Router.extend({
         routes: {
             "": "listAction",
@@ -26,7 +28,10 @@ define([
             var post = new Post({id: id});
 
             post.fetch().done(function() {
-                layout.contentRegion.show(new ShowView({model: post}));
+                layout.contentRegion.show(showLayout);
+
+                showLayout.postRegion.show(new ShowView({model: post}));
+                showLayout.commentsRegion.show(new CommentsView({collection: post.get('comments')}));
             });
         },
         newAction: function() {

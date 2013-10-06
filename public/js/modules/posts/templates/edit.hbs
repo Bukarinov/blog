@@ -1,6 +1,12 @@
 <form>
-    <input type="hidden" name="id" value="{{id}}">
+    {{#if id}}
+        <input type="hidden" name="id" value="{{id}}">
+    {{/if}}
     <label>Title <input type="text" name="title" value="{{title}}"></label>
     <label>description <textarea name="description">{{description}}</textarea></label>
-    <button type="submit">Save</button>
+    {{#if id}}
+        <button type="submit">Update</button>
+    {{else}}
+        <button type="submit">Create</button>
+    {{/if}}
 </form>

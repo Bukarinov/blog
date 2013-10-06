@@ -11,15 +11,16 @@ function(Backbone, Marionette, Post, EditTpl) {
 
             var post = new Post($(e.currentTarget).serializeObject());
 
-            if (post.get('id') == '') {
-                post.set('id', null);
-            }
-
             if (!post.isValid()) {
                 // @TODO Doesn't work
             } else {
-                post.save().done(function() {
-                    Backbone.history.navigate('/', {trigger: true});
+                var res = post.save(null, {
+                    validate: false,
+                    wait: true,
+                    success: function() {
+                        // @TODO Doesn't wait for save
+                        Backbone.history.navigate('/', {trigger: true});
+                    }
                 });
             }
         }
