@@ -1,7 +1,7 @@
-define(['backbone', 'modules/comments/models/comment', 'modules/comments/collections/comments', 'localstorage', 'validation', 'associations'],
+define(['backbone', 'modules/comments/models/comment', 'modules/comments/collections/comments', 'validation', 'associations'],
 function(Backbone, Comment, Comments) {
     return Backbone.AssociatedModel.extend({
-        localStorage: new Backbone.LocalStorage("posts"),
+        urlRoot: 'http://blogapi.bukarinov.ru/posts',
         defaults: {
             title: '',
             description: '',
@@ -15,12 +15,12 @@ function(Backbone, Comment, Comments) {
             }
         ],
         validation: {
-            title: {
+            title: [{
                 required: true
-            },
-            description: {
+            }],
+            description: [{
                 required: true
-            }
+            }]
         }
     });
 });

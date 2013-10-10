@@ -1,6 +1,6 @@
-define(['backbone', 'modules/comments/models/comment', 'localstorage'], function(Backbone, Comment) {
+define(['backbone', 'modules/comments/models/comment'], function(Backbone, Comment) {
     return Backbone.Collection.extend({
-        localStorage: new Backbone.LocalStorage("comments"),
+        url: 'http://blogapi.bukarinov.ru/comments',
         model: Comment
     });
 });

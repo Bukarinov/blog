@@ -14,11 +14,7 @@ define([
 
         onShow: function() {
             this.listRegion.show(new ListView({collection: this.collection}));
-
-            var editView = new EditView();
-            editView.parentObj = this.parentObj;
-
-            this.addRegion.show(editView);
+            this.addRegion.show(new EditView({model: this.model}));
         }
     }));
 });

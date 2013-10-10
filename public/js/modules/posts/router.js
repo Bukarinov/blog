@@ -31,11 +31,9 @@ define([
                 layout.contentRegion.show(showLayout);
                 showLayout.postRegion.show(new ShowView({model: post}));
 
-                commentsLayout.parentObj = post;
+                commentsLayout.model = post;
                 commentsLayout.collection = post.get('comments');
-                commentsLayout.collection.fetch().done(function() {
-                    showLayout.commentsRegion.show(commentsLayout);
-                });
+                showLayout.commentsRegion.show(commentsLayout);
             });
         },
         newAction: function() {

@@ -1,20 +1,18 @@
-define(['backbone', 'modules/posts/models/post', 'localstorage', 'validation', 'associations'], function(Backbone, Post) {
+define(['backbone', 'modules/posts/models/post', 'validation', 'associations'],
+function(Backbone, Post) {
     return Backbone.AssociatedModel.extend({
-        localStorage: new Backbone.LocalStorage("comments"),
+        urlRoot: 'http://blogapi.bukarinov.ru/comments',
         defaults: {
-            text: ''
+            text: '',
+            postId: null
         },
-        /*relations: [
-            {
-                type: Backbone.One,
-                key: 'post',
-                relatedModel: Post
-            }
-        ],*/
         validation: {
-            text: {
+            text: [{
                 required: true
-            }
+            }],
+            postId: [{
+                required: true
+            }]
         }
     });
 });

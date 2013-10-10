@@ -5,7 +5,6 @@ require.config({
         'jquery-serialize-object': 'bower_components/jquery-serialize-object/jquery.serialize-object',
         'underscore': 'bower_components/lodash/dist/lodash.underscore',
         'backbone': 'bower_components/backbone/backbone',
-        'localstorage': 'bower_components/backbone.localStorage/backbone.localStorage',
         'marionette': 'bower_components/backbone.marionette/lib/backbone.marionette',
         'validation': 'bower_components/backbone-validation/dist/backbone-validation',
         'associations': 'bower_components/backbone-associations/backbone-associations',

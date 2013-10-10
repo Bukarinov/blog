@@ -1,6 +1,6 @@
-define(['backbone', 'modules/posts/models/post', 'localstorage'], function(Backbone, Post) {
+define(['backbone', 'modules/posts/models/post'], function(Backbone, Post) {
     return Backbone.Collection.extend({
-        localStorage: new Backbone.LocalStorage("posts"),
+        url: 'http://blogapi.bukarinov.ru/posts',
         model: Post
     });
 });

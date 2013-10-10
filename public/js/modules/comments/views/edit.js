@@ -10,6 +10,7 @@ function(Backbone, Marionette, Comment, CommentTpl) {
             e.preventDefault();
 
             var comment = new Comment($(e.currentTarget).serializeObject());
+            comment.set('postId', this.model.get('id'));
 
             if (!comment.isValid()) {
                 // @TODO Doesn't work
@@ -19,10 +20,8 @@ function(Backbone, Marionette, Comment, CommentTpl) {
                 var that = this;
 
                 comment.save(null, {wait: true}).done(function() {
-                    that.parentObj.get('comments').add(comment.get('id'));
-                    that.parentObj.save(null, {wait: true}).done(function() {
-                        Backbone.history.navigate('/', {trigger: true});
-                    });
+                    // @TODO Add comment to comments' collection and re-render view
+                    Backbone.history.navigate('/', {trigger: true});
                 });
             }
         }
