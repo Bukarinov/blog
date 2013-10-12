@@ -11,29 +11,30 @@ define([
     'modules/posts/views/posts/edit'
 ], function (app, Backbone, Marionette, Posts, Post, showLayout, commentsLayout, ListView, ShowView, EditView) {
     return Backbone.Marionette.Controller.extend({
-        listAction: function() {
+        list: function() {
             var posts = new Posts();
 
             posts.fetch().done(function() {
+                // @TODO Add a parameter to remove administrative buttons
                 app.contentRegion.show(new ListView({collection: posts}));
             });
         },
-        showAction: function(id) {
+        show: function(id) {
             var post = new Post({id: id});
 
-            post.fetch().done(function() {
-                app.contentRegion.show(showLayout);
-                showLayout.postRegion.show(new ShowView({model: post}));
+            app.contentRegion.show(showLayout);
 
+            post.fetch().done(function() {
+                showLayout.postRegion.show(new ShowView({model: post}));
                 commentsLayout.model = post;
                 commentsLayout.collection = post.get('comments');
                 showLayout.commentsRegion.show(commentsLayout);
             });
         },
-        newAction: function() {
+        new: function() {
             app.contentRegion.show(new EditView());
         },
-        editAction: function(id) {
+        edit: function(id) {
             var post = new Post({id: id});
 
             post.fetch().done(function() {

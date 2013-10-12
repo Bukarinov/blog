@@ -18,7 +18,7 @@ function(Backbone, _, Validation, Marionette, Post, EditTpl) {
             var res = post.save(null, {
                 wait: true,
                 success: function() {
-                    Backbone.history.navigate('/', {trigger: true});
+                    Backbone.history.navigate('/post/', {trigger: true});
                 }
             });
 

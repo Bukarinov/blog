@@ -19,7 +19,7 @@ function(Backbone, _, Marionette, Comment, CommentTpl) {
                 wait: true,
                 success: function() {
                     // @TODO Add comment to comments' collection and re-render view
-                    Backbone.history.navigate('/', {trigger: true});
+                    Backbone.history.navigate('/post/' + comment.get('postId'), {trigger: true});
                 }
             });
 
