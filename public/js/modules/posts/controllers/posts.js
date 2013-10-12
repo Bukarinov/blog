@@ -1,34 +1,28 @@
 define([
+    'app',
     'backbone',
+    'marionette',
     'modules/posts/collections/posts',
     'modules/posts/models/post',
-    'modules/common/layouts/main',
     'modules/posts/layouts/show',
     'modules/comments/layouts/list',
     'modules/posts/views/list',
     'modules/posts/views/show',
-    'modules/posts/views/edit'
-], function(Backbone, Posts, Post, layout, showLayout, commentsLayout, ListView, ShowView, EditView) {
-    return new (Backbone.Router.extend({
-        routes: {
-            "": "listAction",
-            "post/new": "newAction",
-            "post/:id": "showAction",
-            "post/:id/edit": "editAction"
-        },
-
+    'modules/posts/views/edit'],
+function (app, Backbone, Marionette, Posts, Post, showLayout, commentsLayout, ListView, ShowView, EditView) {
+    return Backbone.Marionette.Controller.extend({
         listAction: function() {
             var posts = new Posts();
 
             posts.fetch().done(function() {
-                layout.contentRegion.show(new ListView({collection: posts}));
+                app.contentRegion.show(new ListView({collection: posts}));
             });
         },
         showAction: function(id) {
             var post = new Post({id: id});
 
             post.fetch().done(function() {
-                layout.contentRegion.show(showLayout);
+                app.contentRegion.show(showLayout);
                 showLayout.postRegion.show(new ShowView({model: post}));
 
                 commentsLayout.model = post;
@@ -37,14 +31,14 @@ define([
             });
         },
         newAction: function() {
-            layout.contentRegion.show(new EditView());
+            app.contentRegion.show(new EditView());
         },
         editAction: function(id) {
             var post = new Post({id: id});
 
             post.fetch().done(function() {
-                layout.contentRegion.show(new EditView({model: post}));
+                app.contentRegion.show(new EditView({model: post}));
             });
         }
-    }));
+    });
 });

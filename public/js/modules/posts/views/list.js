@@ -4,10 +4,17 @@ function(Backbone, Marionette, Post, PostView) {
         tagName: 'ul',
         itemView: PostView,
         events: {
-            'click .delete': '_deletePostCallback'
+            'click a': '_onClickLink',
+            'click .delete': '_onClickDeletePost'
         },
 
-        _deletePostCallback: function(e) {
+        _onClickLink: function(e) {
+            e.preventDefault();
+
+            Backbone.history.navigate($(e.currentTarget).attr('href'), {trigger: true});
+        },
+
+        _onClickDeletePost: function(e) {
             e.preventDefault();
 
             this.collection.get($(e.currentTarget).data('id')).destroy();

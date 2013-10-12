@@ -1,8 +1,15 @@
-require(['config'], function() {
-    require(['backbone', 'modules/posts/router', 'modules/common/layouts/main', 'modules/common/views/menu'],
-    function(Backbone, postsRouter, layout, MenuView) {
-        layout.headerRegion.show(new MenuView());
+define(['backbone', 'marionette', 'modules/common/views/menu'],
+function(Backbone, Marionette, MenuView) {
+    var app = new Backbone.Marionette.Application();
 
-        Backbone.history.start({pushState: true});
+    app.addRegions({
+        headerRegion: 'header',
+        contentRegion: 'section',
+        footerRegion: 'footer'
     });
+    app.addInitializer(function () {
+        app.headerRegion.show(new MenuView());
+    });
+
+    return app;
 });
