@@ -2,11 +2,21 @@
     {{#if id}}
         <input type="hidden" name="id" value="{{id}}">
     {{/if}}
-    <label>Title <input type="text" name="title" value="{{title}}"></label>
-    <label>description <textarea name="description">{{description}}</textarea></label>
-    {{#if id}}
-        <button type="submit">Update</button>
-    {{else}}
-        <button type="submit">Create</button>
-    {{/if}}
+    <div>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="{{title}}">
+        <span class="error-message"></span>
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <textarea id="description" name="description">{{description}}</textarea>
+        <span class="error-message"></span>
+    </div>
+    <div>
+        {{#if id}}
+            <button type="submit">Update</button>
+        {{else}}
+            <button type="submit">Create</button>
+        {{/if}}
+    </div>
 </form>

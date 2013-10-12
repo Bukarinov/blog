@@ -1,7 +1,11 @@
-define(['backbone', 'validation', 'marionette', 'modules/posts/models/post', 'hbs!modules/posts/templates/posts/edit', 'jquery-serialize-object'],
-function(Backbone, Validation, Marionette, Post, EditTpl) {
+define(['backbone', 'underscore', 'validation', 'marionette', 'modules/posts/models/post', 'hbs!modules/posts/templates/posts/edit', 'jquery-serialize-object'],
+function(Backbone, _, Validation, Marionette, Post, EditTpl) {
     return Backbone.Marionette.ItemView.extend({
         template: EditTpl,
+        ui: {
+            title: '#title',
+            description: '#description'
+        },
         events: {
             'submit form': '_submitPostCallback'
         },
@@ -19,7 +23,14 @@ function(Backbone, Validation, Marionette, Post, EditTpl) {
             });
 
             if (res === false) {
-                console.log(post.validationError);
+                var that = this;
+
+                this.$el.find('.error').removeClass('error');
+                this.$el.find('.error-message').text('');
+
+                _.each(post.validationError, function(val, key) {
+                    that.ui[key].addClass('error').nextAll('.error-message').text(val);
+                });
             }
         }
     });

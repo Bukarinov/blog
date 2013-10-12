@@ -2,6 +2,9 @@ define(['backbone', 'marionette', 'modules/comments/models/comment', 'hbs!module
 function(Backbone, Marionette, Comment, CommentTpl) {
     return Backbone.Marionette.ItemView.extend({
         template: CommentTpl,
+        ui: {
+            text: '#text'
+        },
         events: {
             'submit form': '_onSubmitComment'
         },
@@ -21,7 +24,14 @@ function(Backbone, Marionette, Comment, CommentTpl) {
             });
 
             if (res === false) {
-                console.log(comment.validationError);
+                var that = this;
+
+                this.$el.find('.error').removeClass('error');
+                this.$el.find('.error-message').text('');
+
+                _.each(comment.validationError, function(val, key) {
+                    that.ui[key].addClass('error').nextAll('.error-message').text(val);
+                });
             }
         }
     });

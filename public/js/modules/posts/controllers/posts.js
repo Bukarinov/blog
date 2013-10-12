@@ -8,8 +8,8 @@ define([
     'modules/comments/views/layouts/list',
     'modules/posts/views/posts/list',
     'modules/posts/views/posts/show',
-    'modules/posts/views/posts/edit'],
-function (app, Backbone, Marionette, Posts, Post, showLayout, commentsLayout, ListView, ShowView, EditView) {
+    'modules/posts/views/posts/edit'
+], function (app, Backbone, Marionette, Posts, Post, showLayout, commentsLayout, ListView, ShowView, EditView) {
     return Backbone.Marionette.Controller.extend({
         listAction: function() {
             var posts = new Posts();
