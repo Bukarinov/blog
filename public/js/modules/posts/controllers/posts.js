@@ -4,11 +4,11 @@ define([
     'marionette',
     'modules/posts/collections/posts',
     'modules/posts/models/post',
-    'modules/posts/layouts/show',
-    'modules/comments/layouts/list',
-    'modules/posts/views/list',
-    'modules/posts/views/show',
-    'modules/posts/views/edit'],
+    'modules/posts/views/layouts/show',
+    'modules/comments/views/layouts/list',
+    'modules/posts/views/posts/list',
+    'modules/posts/views/posts/show',
+    'modules/posts/views/posts/edit'],
 function (app, Backbone, Marionette, Posts, Post, showLayout, commentsLayout, ListView, ShowView, EditView) {
     return Backbone.Marionette.Controller.extend({
         listAction: function() {

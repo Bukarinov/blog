@@ -1,5 +1,5 @@
-define(['backbone', 'modules/posts/models/post', 'validation', 'associations'],
-function(Backbone, Post) {
+define(['backbone', 'associations'],
+function(Backbone) {
     return Backbone.AssociatedModel.extend({
         urlRoot: 'http://blogapi.bukarinov.ru/comments',
         defaults: {
@@ -7,12 +7,13 @@ function(Backbone, Post) {
             postId: null
         },
         validation: {
-            text: [{
+            text: {
+                required: true,
+                minLength: 1
+            },
+            postId: {
                 required: true
-            }],
-            postId: [{
-                required: true
-            }]
+            }
         }
     });
 });

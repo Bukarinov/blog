@@ -2,8 +2,8 @@ define([
     'backbone',
     'marionette',
     'hbs!modules/comments/templates/layouts/list',
-    'modules/comments/views/list',
-    'modules/comments/views/edit'
+    'modules/comments/views/comments/list',
+    'modules/comments/views/comments/edit'
 ], function(Backbone, Marionette, ListLayoutTpl, ListView, EditView, Comments) {
     return new (Backbone.Marionette.Layout.extend({
         template: ListLayoutTpl,

@@ -29,7 +29,7 @@ require.config({
             exports : 'Marionette'
         },
         validation : {
-            deps : ['jquery', 'backbone']
+            deps : ['jquery', 'underscore', 'backbone']
         },
         associations: {
             deps : ['backbone']

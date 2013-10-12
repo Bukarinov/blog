@@ -1,4 +1,4 @@
-define(['backbone', 'marionette', 'modules/posts/models/post', 'modules/posts/views/post'],
+define(['backbone', 'marionette', 'modules/posts/models/post', 'modules/posts/views/posts/list/post'],
 function(Backbone, Marionette, Post, PostView) {
     return Backbone.Marionette.CollectionView.extend({
         tagName: 'ul',
