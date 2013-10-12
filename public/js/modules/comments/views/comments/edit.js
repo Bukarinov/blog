@@ -1,5 +1,5 @@
-define(['backbone', 'marionette', 'modules/comments/models/comment', 'hbs!modules/comments/templates/comments/edit', 'jquery-serialize-object'],
-function(Backbone, Marionette, Comment, CommentTpl) {
+define(['backbone', 'underscore', 'marionette', 'modules/comments/models/comment', 'hbs!modules/comments/templates/comments/edit', 'jquery-serialize-object'],
+function(Backbone, _, Marionette, Comment, CommentTpl) {
     return Backbone.Marionette.ItemView.extend({
         template: CommentTpl,
         ui: {
