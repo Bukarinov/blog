@@ -11,13 +11,13 @@ function(Backbone, Marionette, Post, PostView) {
         _onClickLink: function(e) {
             e.preventDefault();
 
-            Backbone.history.navigate($(e.currentTarget).attr('href'), {trigger: true});
+            Backbone.history.navigate(this.$(e.currentTarget).attr('href'), {trigger: true});
         },
 
         _onClickDeletePost: function(e) {
             e.preventDefault();
 
-            this.collection.get($(e.currentTarget).data('id')).destroy();
+            this.collection.get(this.$(e.currentTarget).data('id')).destroy();
         }
     });
 });

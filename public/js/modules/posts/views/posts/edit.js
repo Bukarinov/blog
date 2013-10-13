@@ -13,12 +13,12 @@ function(Backbone, _, Validation, Marionette, Post, EditTpl) {
         _submitPostCallback: function(e) {
             e.preventDefault();
 
-            var post = new Post($(e.currentTarget).serializeObject());
+            var post = new Post(this.$(e.currentTarget).serializeObject());
 
             var res = post.save(null, {
                 wait: true,
                 success: function() {
-                    Backbone.history.navigate('/post/', {trigger: true});
+                    Backbone.history.navigate('/post', {trigger: true});
                 }
             });
 

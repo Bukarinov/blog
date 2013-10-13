@@ -41,5 +41,11 @@ require.config({
     hbs: {
         disableI18n: true,
         disableHelpers: true
+    },
+    map: {
+        "*": {
+            "styl": "bower_components/require-stylus/require-stylus", // RequireJS loader plugin
+            "stylus": "bower_components/require-stylus/stylus" // client-side stylus compiler instance (can/should be substituted with actual required stylus version)
+        }
     }
 });

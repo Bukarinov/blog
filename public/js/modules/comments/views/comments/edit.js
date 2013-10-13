@@ -12,7 +12,7 @@ function(Backbone, _, Marionette, Comment, CommentTpl) {
         _onSubmitComment: function(e) {
             e.preventDefault();
 
-            var comment = new Comment($(e.currentTarget).serializeObject());
+            var comment = new Comment(this.$(e.currentTarget).serializeObject());
             comment.set('postId', this.model.get('id'));
 
             var res = comment.save(null, {

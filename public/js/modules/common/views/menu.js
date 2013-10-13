@@ -1,4 +1,4 @@
-define(['backbone', 'marionette', 'hbs!modules/common/templates/menu'],
+define(['backbone', 'marionette', 'hbs!modules/common/templates/menu', 'styl!modules/common/styles/menu'],
 function(Backbone, Marionette, menuTpl) {
     return Backbone.Marionette.ItemView.extend({
         template: menuTpl,
@@ -9,7 +9,7 @@ function(Backbone, Marionette, menuTpl) {
         _onClickLink: function(e) {
             e.preventDefault();
 
-            Backbone.history.navigate($(e.currentTarget).attr('href'), {trigger: true});
+            Backbone.history.navigate(this.$(e.currentTarget).attr('href'), {trigger: true});
         }
     });
 });
