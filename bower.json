@@ -15,7 +15,6 @@
     "backbone-validation": "0.8.1",
     "backbone-associations": "0.5.3",
     "handlebars.js": "1.0.0",
-    "hbs": "0.4.0",
-    "require-stylus": "1.0.8"
+    "hbs": "0.4.0"
   }
 }
