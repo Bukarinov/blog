@@ -1,10 +1,6 @@
-body{font:14px Helvetica,Arial,sans-serif;}
-body #posts .edit,body #posts .delete{display:none}
-body{font:14px Helvetica,Arial,sans-serif;}
-body #posts .edit,body #posts .delete{display:none}
+body{font:14px Helvetica,Arial,sans-serif}
+#posts .edit,#posts .delete{display:none}
 
-body{font:14px Helvetica,Arial,sans-serif;}
-body #posts .edit,body #posts .delete{display:none}
 menu{text-align:center}
 menu li{display:inline-block;margin:0 20px}
 menu li a{font-size:16px;color:#219161;}

@@ -1,4 +1,4 @@
-menuColor = #219161
+@import 'mixins/main.styl'
 
 menu
   text-align center
@@ -9,9 +9,9 @@ menu li
 
 menu li a
   font-size 16px
-  color menuColor
+  color $menuColor
   &:visited
-    color menuColor
+    color $menuColor
   &:hover
     color #000000
   &.active

@@ -9,10 +9,10 @@ module.exports = function(grunt) {
         stylus: {
             compile: {
                 options: {
-                    paths: ['public/js/modules/common/styles/mixins'],
+                    /*paths: ['public/js/modules/common/styles/mixins'],
                     import: [
-                        'main.styl'
-                    ]
+                        'public/js/modules/common/styles/mixins/main.styl'
+                    ]*/
                 },
                 files: {
                     'public/css/main.css': [
