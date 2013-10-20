@@ -4,12 +4,12 @@ define([
     'marionette',
     'modules/posts/collections/posts',
     'modules/posts/models/post',
-    'modules/posts/views/layouts/show',
-    'modules/comments/views/layouts/list',
+    'modules/posts/views/layoutShow',
+    'modules/comments/views/layoutList',
     'modules/posts/views/posts/list',
     'modules/posts/views/posts/show',
     'modules/posts/views/posts/edit'
-], function (app, Backbone, Marionette, Posts, Post, showLayout, commentsLayout, ListView, ShowView, EditView) {
+], function (app, Backbone, Marionette, Posts, Post, ShowLayout, CommentsLayout, ListView, ShowView, EditView) {
     return Backbone.Marionette.Controller.extend({
         list: function() {
             var posts = new Posts();
@@ -20,15 +20,14 @@ define([
             });
         },
         show: function(id) {
-            var post = new Post({id: id});
+            var post = new Post({id: id}),
+                showLayout = new ShowLayout();
 
             app.contentRegion.show(showLayout);
 
             post.fetch().done(function() {
                 showLayout.postRegion.show(new ShowView({model: post}));
-                commentsLayout.model = post;
-                commentsLayout.collection = post.get('comments');
-                showLayout.commentsRegion.show(commentsLayout);
+                showLayout.commentsRegion.show(new CommentsLayout({model: post,  collection: post.get('comments')}));
             });
         },
         new: function() {

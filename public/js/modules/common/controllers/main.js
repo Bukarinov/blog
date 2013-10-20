@@ -2,13 +2,14 @@ define([
     'app',
     'backbone',
     'marionette',
-    'modules/common/views/layouts/main',
+    'modules/common/views/layoutMain',
     'modules/posts/collections/posts',
     'modules/posts/views/posts/list'
-], function (app, Backbone, Marionnete, mainLayout, Posts, ListView) {
+], function (app, Backbone, Marionnete, MainLayout, Posts, ListView) {
     return Backbone.Marionette.Controller.extend({
         index: function() {
-            var posts = new Posts();
+            var posts = new Posts(),
+                mainLayout = new MainLayout();
 
             app.contentRegion.show(mainLayout);
 

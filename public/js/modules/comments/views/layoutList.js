@@ -1,11 +1,11 @@
 define([
     'backbone',
     'marionette',
-    'hbs!modules/comments/templates/layouts/list',
+    'hbs!modules/comments/templates/layoutList',
     'modules/comments/views/comments/list',
     'modules/comments/views/comments/edit'
-], function(Backbone, Marionette, ListLayoutTpl, ListView, EditView, Comments) {
-    return new (Backbone.Marionette.Layout.extend({
+], function(Backbone, Marionette, ListLayoutTpl, ListView, EditView) {
+    return Backbone.Marionette.Layout.extend({
         template: ListLayoutTpl,
         regions: {
             listRegion: '#comments-list',
@@ -16,5 +16,5 @@ define([
             this.listRegion.show(new ListView({collection: this.collection}));
             this.addRegion.show(new EditView({model: this.model}));
         }
-    }));
+    });
 });
