@@ -6,3 +6,21 @@ body
 #posts
   .edit, .delete
     display none
+
+.loading
+  display block
+  min-height 1em
+  position relative
+
+  &:after
+    display block
+    min-height 1em
+    content 'Loading...'
+    vertical-align middle
+    text-align center
+    background-color rgba(163, 163, 163, 0.8)
+    position absolute
+    top 0
+    bottom 0
+    left 0
+    right 0

@@ -11,17 +11,18 @@ require.config({
         'handlebars': 'bower_components/handlebars.js/dist/handlebars',
         'hbs': 'bower_components/hbs/hbs',
         'json2': 'bower_components/hbs/hbs/json2',
-        'i18nprecompile': 'bower_components/hbs/hbs/i18nprecompile'
+        'i18nprecompile': 'bower_components/hbs/hbs/i18nprecompile',
+        'fetch': 'lib/fetch'
     },
     shim: {
         'jquery-serialize-object' : {
             deps : ['jquery']
         },
-        'backbone': {
+        backbone: {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone'
         },
-        'underscore': {
+        underscore: {
             exports: '_'
         },
         marionette : {
@@ -34,8 +35,11 @@ require.config({
         associations: {
             deps : ['backbone']
         },
-        'handlebars': {
+        handlebars : {
             exports: 'Handlebars'
+        },
+        fetch : {
+            deps : ['backbone', 'underscore']
         }
     },
     hbs: {

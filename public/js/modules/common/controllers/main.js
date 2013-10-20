@@ -12,10 +12,8 @@ define([
                 mainLayout = new MainLayout();
 
             app.contentRegion.show(mainLayout);
-
-            posts.fetch({data: {limit: 3}}).done(function() {
-                mainLayout.postsRegion.show(new ListView({collection: posts}));
-            });
+            mainLayout.postsRegion.show(new ListView({collection: posts}));
+            posts.fetch({data: {limit: 3}});
         }
     });
 });

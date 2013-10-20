@@ -7,6 +7,21 @@ function(Backbone, Marionette, Post, PostView) {
             'click a': '_onClickLink',
             'click .delete': '_onClickDeletePost'
         },
+        initialize : function () {
+            this.listenTo(this.collection, 'beforeFetch', this._onBeforeFetch);
+            this.listenTo(this.collection, 'afterFetch', this._onAfterFetch);
+            this.listenTo(this.collection, 'errorFetch', this._onErrorFetch);
+        },
+
+        _onBeforeFetch: function() {
+            this.$el.addClass('loading');
+        },
+        _onAfterFetch: function() {
+            this.$el.removeClass('loading');
+        },
+        _onErrorFetch: function() {
+            // @TODO Trigger global error "Something goes wrong!"
+        },
 
         _onClickLink: function(e) {
             e.preventDefault();

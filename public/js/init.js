@@ -1,7 +1,7 @@
 define(['config'], function() {
     require([
-        'app', 'validation', 'modules/common/routers/error', 'modules/common/routers/main', 'modules/posts/routers/posts'
-    ], function(app, validation, ErrorRouter, MainRouter, PostsRouter) {
+        'backbone', 'app', 'validation', 'fetch', 'modules/common/routers/error', 'modules/common/routers/main', 'modules/posts/routers/posts'
+    ], function(Backbone, app, validation, fetch, ErrorRouter, MainRouter, PostsRouter) {
         _.extend(Backbone.Model.prototype, Backbone.Validation.mixin);
 
         app.start();
